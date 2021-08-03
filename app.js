@@ -3,8 +3,9 @@ const app = express()
 const port = 3000
 
 const exphbs = require('express-handlebars')
-const restaurantList = require('./restaurant.json')
+const Restaurant = require('./models/seeds/restaurantSeeder.js')
 const mongoose = require('mongoose')
+const restaurant = require('./models/restaurant.js')
 
 mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true})
 
@@ -25,7 +26,10 @@ app.use(express.static('public'))
 
 app.get('/', (req, res) => {
 
-  res.render('index', { items: restaurantList.results })
+  Restaurant.find()
+            .lean()
+            .then( stores => res.render('index',{stores}))
+            .catch(error =>console.log(error))
 })
 
 app.get('/restaurants/:restaurant_id', (req, res) => {
