@@ -3,7 +3,7 @@ const app = express()
 const port = 3000
 
 const exphbs = require('express-handlebars')
-const Restaurant = require('./models/seeds/restaurantSeeder.js')
+const Restaurant = require('./models/restaurant')
 const mongoose = require('mongoose')
 const restaurant = require('./models/restaurant.js')
 
