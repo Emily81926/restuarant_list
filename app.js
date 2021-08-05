@@ -11,11 +11,11 @@ mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true,
 
 const db = mongoose.connection
 
-db.on('error',() => {
+db.on('error', () => {
   console.log('mongodb error!')
 })
 
-db.once('open',() => {
+db.once('open', () => {
   console.log('mongodb connected!')
 })
 
@@ -33,11 +33,14 @@ app.get('/', (req, res) => {
             .catch(error =>console.log(error))
 })
 
-// app.get('/restaurants/:restaurant_id', (req, res) => {
-//   const item = restaurantList.results.find(item => item.id.toString() === req.params.restaurant_id)
-
-//   res.render('show', { item: item })
-// })
+app.get('/restaurants/:id', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+      .lean()
+    .then((item) => res.render('show', { item }))
+    .catch(error => console.log(error))
+ 
+})
 
 // app.get('/search', (req, res) => {
 
@@ -48,11 +51,11 @@ app.get('/', (req, res) => {
 //   res.render('index', { items: restaurant, keyword: keyword })
 // })
 
-app.get('/restaurants/new',(req,res)=>{
+app.get('/restaurants/new',(req, res)=>{
   return res.render('new')
 })
 
-app.post('/restaurants', (req,res) =>{
+app.post('/restaurants', (req, res) =>{
   const name = req.body.name
   const name_en = req.body.name_en
   const category = req.body.category
@@ -63,9 +66,9 @@ app.post('/restaurants', (req,res) =>{
   const rating = req.body.rating
   const description = req.body.description
   
-  console.log('req.body.phone',req.body.phone)
-  return Restaurant.create({ name , name_en , category ,  image ,  location ,  phone ,  google_map ,  rating ,  description })
-                 .then(()=> res.redirect('/'))
+  console.log('req.body.phone', req.body.phone)
+  return Restaurant.create({ name , name_en , category , image , location , phone , google_map ,  rating , description })
+                 .then(() => res.redirect('/'))
                  .catch(error => console.log(error))
 
 })
