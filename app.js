@@ -7,8 +7,8 @@ const mongoose = require('mongoose')
 const restaurant = require('./models/restaurant.js')
 const bodyParser = require('body-parser')
 
-mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
 
+mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
 
 db.on('error', () => {
@@ -48,8 +48,6 @@ app.post('/restaurants', (req, res) => {
   const google_map = req.body.google_map
   const rating = req.body.rating
   const description = req.body.description
-
-  console.log('req.body.phone', req.body.phone)
   return Restaurant.create({ name, name_en, category, image, location, phone, google_map, rating, description })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
@@ -67,15 +65,17 @@ app.get('/restaurants/:id', (req, res) => {
 
 
 // app.get('/search', (req, res) => {
-
-//   const keyword = req.query.keyword
-//   const restaurant = restaurantList.results.filter(items => {
-//     return items.name.toLowerCase().includes(keyword.toLowerCase())
-//   })
-//   res.render('index', { items: restaurant, keyword: keyword })
+//   const keyword = req.query.keyword.toLowerCase()
+//   const list = 
+//   // const restaurant = Restaurant.results.filter(item => {
+//   //   return item.name.toLowerCase().includes(keyword) || item.category.toLowerCase().includes(keyword)
+//   // })
+//   // Restaurant.find(item => { return name.toLowerCase().includes(keyword) || category.toLowerCase().includes(keyword)})
+//   //     .lean()
+//   //   .then(res.render('index', { item: restaurant, keyword: keyword }))
+//   //   .catch(error => console.log(error))
+  
 // })
-
-
 
 
 
