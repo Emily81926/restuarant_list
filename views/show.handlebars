@@ -37,6 +37,9 @@
       </p>
 
       <a href="/restaurants/{{ item._id }}/edit" >edit</a>
+      <form action="/restaurants/{{ item._id }}/delete" method="POST" style="display:inline">
+        <button type="submit">delete</button>
+      </form>
 
       <img class="rounded mx-auto d-block mb-4 w-100"
         src="{{ item.image }}" alt="{{ item.name }}"
