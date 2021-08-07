@@ -1,40 +1,77 @@
-<form action="/restaurants/{{ item._id }}/edit" method="POST">
-  <div>
-    <span>餐廳名稱</span>
-    <input type="text" placeholder="名稱" name="name" value="{{ item.name }}">
+
+<div class="container mx-auto p-5 my-5 bg-success text-light">
+  <div class="p-3 mt-3">
+    <form action="/restaurants/{{ item._id }}/edit" method="POST" class="font-weight-light">
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">餐廳名稱</label>
+        <div class="col-sm-10">
+          <input type="text" placeholder="名稱" name="name" class="form-control" value="{{ item.name }}" required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">餐廳英文名稱</label>
+        <div class="col-sm-10">
+          <input type="text" placeholder="英文名稱" name="name_en" class="form-control" value="{{ item.name_en }}" required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">餐廳類別</label>
+        <div class="col-sm-10">
+          <input type="text" placeholder="日本料理、義式料理..." name="category" class="form-control" value="{{ item.category }}">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">餐廳照片網址</label>
+        <div class="col-sm-10">
+          <input type="text" placeholder="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5633/07.jpg"
+            name="image" class="form-control" value="{{ item.image }}">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">餐廳地點</label>
+        <div class="col-sm-10">
+          <input type="text" placeholder="台北市中山區伊通街 33 號" name="location" class="form-control" value="{{ item.location }}">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">餐廳電話</label>
+        <div class="col-sm-10">
+          <input type="text" placeholder="02 2507 0633" name="phone" class="form-control" value="{{ item.phone }}">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Google_Map</label>
+        <div class="col-sm-10">
+          <input type="text" placeholder="https://goo.gl/maps/Y1iyiSK7EeR2" name="google_map" class="form-control" value="{{ item.google_map }}">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">餐廳評分</label>
+        <div class="col-sm-5">
+          <input type="text" placeholder="4.5" name="rating" class="form-control" min="0" max="5" step="0.1" value="{{ item.rating }}" required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">餐廳簡介</label>
+        <div class="col-sm-10">
+          <input type="text" placeholder=" " name="description" class="form-control" value="{{ item.description }}" cols="48" rows="3"></input>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="input-group-append d-md-flex justify-content-md-end">
+          <button type="submit" class="btn btn-secondary" role="button" aria-pressed="true">Save</button>
+          <a href="/" class="btn btn-info">back</a>
+        </div>
+      </div>
+    </form>
   </div>
-  <div>
-    <span>餐廳英文名稱</span>
-    <input type="text" placeholder="英文名稱" name="name_en" value="{{ item.name_en }}">
-  </div>
-  <span>餐廳類別</span>
-  <input type="text" placeholder="日本料理、義式料理..." name="category" value="{{ item.category }}">
-  </div>
-  <div>
-    <span>餐廳照片網址</span>
-    <input type="text" placeholder="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5633/07.jpg"
-      name="image" value="{{ item.image }}">
-  </div>
-  <div>
-    <span>餐廳地點</span>
-    <input type="text" placeholder="台北市中山區伊通街 33 號" name="location" value="{{ item.location }}">
-  </div>
-  <div>
-    <span>餐廳電話</span>
-    <input type="text" placeholder="02 2507 0633" name="phone" value="{{ item.phone }}">
-  </div>
-  <div>
-    <span>Google_Map</span>
-    <input type="text" placeholder="https://goo.gl/maps/Y1iyiSK7EeR2" name="google_map" value="{{ item.google_map }}">
-  </div>
-  <div>
-    <span>餐廳評分</span>
-    <input type="text" placeholder="4.5" name="rating" value="{{ item.rating }}">
-  </div>
-  <div>
-    <span>餐廳簡介</span>
-    <input type="text" placeholder=" " name="description" value="{{ item.description }}">
-  </div>
-  <button type="submit">儲存</button>
-  <a href="/">返回</a>
-</form>
+</div>
