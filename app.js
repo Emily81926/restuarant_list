@@ -64,19 +64,17 @@ app.get('/restaurants/:id', (req, res) => {
 })
 
 
-// app.get('/search', (req, res) => {
-//   const keyword = req.query.keyword.toLowerCase()
-//   
-//   // const restaurant = Restaurant.results.filter(item => {
-//   //   return item.name.toLowerCase().includes(keyword) || item.category.toLowerCase().includes(keyword)
-//   // })
-//   // Restaurant.find(item => { return name.toLowerCase().includes(keyword) || category.toLowerCase().includes(keyword)})
-//   //     .lean()
-//   //   .then(res.render('index', { item: restaurant, keyword: keyword }))
-//   //   .catch(error => console.log(error))
-  
-// })
 
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword
+  const keywordRegex = new RegExp(keyword, 'i');
+  
+  Restaurant.find({ $or: [{ category: { $regex: keywordRegex} }, { name: { $regex: keywordRegex} } ] })
+    .lean()
+    .then(stores => res.render('index', { stores , keyword }))
+    .catch(error => console.log(error))
+  
+})
 
 
 app.get('/restaurants/:id/edit', (req, res) => {
