@@ -21,7 +21,7 @@ router.get('/desc', (req, res) => {
 //依種類排列
 router.get('/category', (req, res) => {
        Restaurant.find()
-              .sort({ category: 'asc' })
+              .sort({ category: 1})
               .lean()
               .then(stores => res.render('index', { stores }))
               .catch(error => console.log(error))
@@ -29,7 +29,7 @@ router.get('/category', (req, res) => {
 //依地點排列
 router.get('/location', (req, res) => {
        Restaurant.find()
-              .sort({ location: 'asc' })
+              .sort({ location: 1 })
               .lean()
               .then(stores => res.render('index', { stores }))
               .catch(error => console.log(error))
