@@ -27,6 +27,12 @@ app.use(express.static('public'))
 app.use(methodOverride('_method'))
 
 usePassport(app)
+//設定本地變數 res.locals 的 middleware
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.isAuthenticated()
+  res.locals.user = req.user
+  next()
+})
 app.use(routes)
 
 

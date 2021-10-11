@@ -5,11 +5,13 @@
       <a class="navbar-brand" href="/">
         <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
           width="30" height="30" class="d-inline-block align-top" alt="我的餐廳清單">
-        我的餐廳清單
+        {{#if isAuthenticated}}{{ user.name }}'s{{/if}}餐廳清單
       </a>
-        <!-- 先暫時做，之後會刪除 -->
-      <a class="btn btn-sm btn-info col-lg-3 col-10 my-1 mx-1" href="/users/login">login</a>
-      
+      {{#if isAuthenticated}}
+      <a class="btn btn-m btn-info  my-1 mx-1" href="/users/logout">logout</a>
+      {{else}}
+      <a class="btn btn-m btn-info  my-1 mx-1" href="/users/login">login</a>
+      {{/if}}
     </div>
     
   </nav>
