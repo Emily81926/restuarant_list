@@ -1,7 +1,8 @@
 <div class="container">
-  <h1>Account Login</h1>
+  <h1 class="mt-4">Account Login</h1>
+  {{>message}}
   <form action="/users/login" method="POST">
-  <div class="form-group row">
+  <div class="form-group row mt-3">
     <input type="text" placeholder="Email" name="email" class="form-control" required>
   </div>
 

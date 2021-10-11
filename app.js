@@ -8,6 +8,7 @@ const Restaurant = require('./models/restaurant')
 const restaurant = require('./models/restaurant.js')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
+const flash = require('connect-flash')
 const routes = require('./routes')
 const usePassport = require('./config/passport')
 
@@ -27,10 +28,13 @@ app.use(express.static('public'))
 app.use(methodOverride('_method'))
 
 usePassport(app)
+app.use(flash())
 //設定本地變數 res.locals 的 middleware
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.isAuthenticated()
   res.locals.user = req.user
+  res.locals.success_msg = req.flash('success_msg')
+  res.locals.warning_msg = req.flash('warning_msg')
   next()
 })
 app.use(routes)
