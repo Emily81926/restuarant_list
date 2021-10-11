@@ -1,7 +1,7 @@
 const express = require('express')
 const session = require('express-session')
 const app = express()
-const port = 3000
+const PORT = 3000
 const exphbs = require('express-handlebars')
 const Restaurant = require('./models/restaurant')
 
@@ -21,7 +21,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main', extname: '.handlebars' 
 app.set('view engine', 'handlebars')
 
 app.use(session({
-  secret:'ThisIsMySecret',
+  secret: process.env.SEESION_SECRET,
   resave: false,
   saveUninitialized: true,
 }))
@@ -45,6 +45,6 @@ app.use(routes)
 
 
 
-app.listen(port, () => {
-  console.log(`express is listening on http://localhost:${port}`)
+app.listen(PORT, () => {
+  console.log(`express is listening on http://localhost:${PORT}`)
 })
