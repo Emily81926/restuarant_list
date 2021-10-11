@@ -6,16 +6,18 @@ const restaurants = require('./modules/restaurants')
 const search = require('./modules/search')
 const sort = require('./modules/sort')
 const users = require('./modules/users')
+const{ authenticator } = require('../middleware/auth')
 
 // 將網址結構符合/字串的request導向home模組
-router.use('/', home)
+router.use('/restaurants', authenticator, restaurants)
 
-router.use('/restaurants', restaurants)
+router.use('/sort', authenticator, sort)
 
-router.use('/search', search)
-
-router.use('/sort', sort)
+router.use('/search', authenticator, search)
 
 router.use('/users', users)
+
+router.use('/', authenticator ,home)
+
 
 module.exports = router
