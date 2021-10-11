@@ -13,7 +13,7 @@ router.post('/register', (req, res) => {
   .then( user => {
     if(user){
       console.log('User already exists.')
-      res.render('/register',{
+      res.render('register',{
         name,
         email,
         password,
