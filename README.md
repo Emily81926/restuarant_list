@@ -4,6 +4,7 @@
 
 ## 功能列表
 
+- 註冊帳號，註冊方式為輸入信箱及密碼，或是使用facebook第三方登入
 - 依照餐廳名稱及餐廳類別搜尋
 - 依照餐廳名稱、類別及地區排序
 - 檢視餐廳詳細資訊包含類別、地址、電話、評分、圖片及簡介
@@ -33,7 +34,7 @@ npm install  //安裝套件
 3.產生預設使用者及餐廳資料至 MongoDB
 
 ```
-npm run insertSeeds  //執行增加資料至 MongoDB
+node models/seeds/restaurantSeeder.js
 ```
 
 
