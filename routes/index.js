@@ -12,13 +12,13 @@ const{ authenticator } = require('../middleware/auth')
 // 將網址結構符合/字串的request導向home模組
 router.use('/restaurants', authenticator, restaurants)
 
-router.use('/auth', auth)
-
-router.use('/users', users)
-
 router.use('/sort', authenticator, sort)
 
 router.use('/search', authenticator, search)
+
+router.use('/users', users)
+
+router.use('/auth', auth)
 
 router.use('/', authenticator ,home)
 
