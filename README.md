@@ -50,6 +50,8 @@ mongodb connected!` 即啟動完成，請至[http://localhost:3000](http://local
 
 ## Screen Photo
 
+![登入頁](https://github.com/Emily81926/restuarant_list/blob/efdf59e508b846d53a17cc44f12acf819ad3dbca/%E7%99%BB%E5%85%A5%E9%A0%81.png)
+![註冊頁](https://github.com/Emily81926/restuarant_list/blob/efdf59e508b846d53a17cc44f12acf819ad3dbca/%E8%A8%BB%E5%86%8A%E9%A0%81.png)
 ![首頁](https://github.com/Emily81926/restuarant_list/blob/383fe6dd5c625073c04b3a5322f9c77c5d980957/public/img/%E9%A6%96%E9%A0%81.png)
 ![細節頁](https://github.com/Emily81926/restuarant_list/blob/383fe6dd5c625073c04b3a5322f9c77c5d980957/public/img/%E7%B4%B0%E7%AF%80%E9%A0%81.png)
 ![編輯頁](https://github.com/Emily81926/restuarant_list/blob/383fe6dd5c625073c04b3a5322f9c77c5d980957/public/img/%E7%B7%A8%E8%BC%AF%E9%A0%81.png)
