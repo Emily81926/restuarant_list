@@ -26,5 +26,8 @@
     "passport-facebook": "^3.0.0",
     "passport-local": "^1.0.0",
     "popper.js": "^1.11.0"
+  },
+  "devDependencies": {
+    "standard": "^16.0.4"
   }
 }

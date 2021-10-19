@@ -33,9 +33,9 @@ db.once('open', () => {
         password: hash
       }))
       .then(user => {
-        //從restaurant_data中篩選出含有在SEED_USER的restaurantsID中的餐廳
+        // 從restaurant_data中篩選出含有在SEED_USER的restaurantsID中的餐廳
         const restaurants = restaurant_data.filter(restaurant => SEED_USER.restaurantsID.includes(restaurant.id))
-        //將選出的餐廳，設定他們的userId是user資料庫所產生的id
+        // 將選出的餐廳，設定他們的userId是user資料庫所產生的id
         restaurants.forEach(restaurant => { restaurant.userId = user._id })
         return Restaurant.create(restaurants)
       })
@@ -45,8 +45,4 @@ db.once('open', () => {
       process.exit()
     })
     .catch(err => console.log(err))
-
 })
-
-
-
