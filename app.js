@@ -21,7 +21,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main', extname: '.handlebars' 
 app.set('view engine', 'handlebars')
 
 app.use(session({
-  secret: process.env.SEESION_SECRET,
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
 }))
