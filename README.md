@@ -34,7 +34,7 @@ npm install  //安裝套件
 3.產生預設使用者及餐廳資料至 MongoDB
 
 ```
-node models/seeds/restaurantSeeder.js
+npm run seed
 ```
 
 
